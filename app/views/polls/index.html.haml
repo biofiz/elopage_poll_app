@@ -1,0 +1,11 @@
+%h1 All polls
+%p= link_to "Add new poll", new_poll_path
+- @polls.each do |p|
+  .container.jumbotron
+    %h2= link_to p.title, p
+    .container
+      .form-row
+        .container.col-md-6
+          = link_to "Edit", edit_poll_path(p)
+        .container.col-md-6
+          = link_to "Delete", p, method: :delete
