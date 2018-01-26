@@ -1,0 +1,8 @@
+%h1 About poll
+%h2 #{@poll.title}
+%ul
+  - @poll.answer_options.each do |a|
+    %li
+      = a
+
+%p= link_to "Edit", edit_poll_path(@poll)
