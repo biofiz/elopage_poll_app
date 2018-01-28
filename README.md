@@ -1,24 +1,20 @@
-# README
+#TEST TASK RUBY
+Our task is to create a simple voting rails app. The main features should be user registration and login, poll creation and link generation for the poll, which other users/friends can use to access and vote. The poll has a title and as many options as the user makes.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Pages:
+Login (index), Registration (first and last name, email, password), Poll CRUD, Poll voting/show for voters.
 
-Things you may want to cover:
+For the task please use:
 
-* Ruby version
+* Rails
+* Postgresql your choice
+* Bootstrap for UI
+* Use HAML
+* Write some tests using rspec and some integration tests with capybara and cucumber. Full test coverage is not needed just write something to show knowledge.
+* Create a repo in Github or bitbucket and push your progress there and share the link with us.
 
-* System dependencies
+Bonus:
 
-* Configuration
+* Make the Poll show page realtime when voting
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+You can use whatever gems you like, except any gem that makes everything above and makes the task senseless.
