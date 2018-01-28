@@ -1,4 +1,5 @@
-#TEST TASK RUBY
+#TEST TASK RUBY  
+
 Our task is to create a simple voting rails app. The main features should be user registration and login, poll creation and link generation for the poll, which other users/friends can use to access and vote. The poll has a title and as many options as the user makes.
 
 Pages:
