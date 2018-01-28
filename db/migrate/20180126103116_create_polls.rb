@@ -3,7 +3,7 @@ class CreatePolls < ActiveRecord::Migration[5.1]
     create_table :polls do |t|
       t.string :title,    null: false
       t.integer :user_id, null: false
-      t.string :vote_link
+      t.string :uuid
 
       t.timestamps
     end

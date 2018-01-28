@@ -1,5 +1,6 @@
 class Answer < ApplicationRecord
   belongs_to :user
   belongs_to :poll
-  enum answer: [ :yes, :no ]
+
+  validates_presence_of :option
 end

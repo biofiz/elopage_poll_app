@@ -1,0 +1,5 @@
+.form-group.row.answer
+  .col-sm-10
+    = text_field_tag "poll[answer_options][answer#{answer_number}]", answer, class: 'form-control'
+  .col-sm-2
+    = link_to 'Delete', '#', class: 'delete-answer'

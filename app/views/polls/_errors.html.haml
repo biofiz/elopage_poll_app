@@ -1,0 +1,5 @@
+%h4.text-danger Errors:
+%p
+- poll.errors.full_messages.each do |message|
+  %span.text-danger= message
+  %br

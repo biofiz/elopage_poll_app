@@ -6,4 +6,8 @@ class User < ApplicationRecord
 
   has_many :polls
   has_many :answers
+
+  def already_voted?(poll)
+    answers.where(poll: poll).present?
+  end
 end

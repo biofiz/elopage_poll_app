@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20180126152518) do
   create_table "answers", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "poll_id", null: false
-    t.integer "answer"
+    t.integer "option"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20180126152518) do
   create_table "polls", force: :cascade do |t|
     t.string "title", null: false
     t.integer "user_id", null: false
-    t.string "vote_link"
+    t.string "uuid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "answer_options", default: [], array: true

@@ -1,0 +1,17 @@
+.row
+  .col-md-12.col-md-offset-6
+    - if poll.errors.any?
+      = render 'errors', poll: poll
+    = form_for poll, url: { action: action }, html: {class: 'form-control'} do |f|
+      .form-group
+        = f.label 'Title'
+        = f.text_field :title, class: 'form-control'
+      %h4 Answers
+      #answers
+        - if poll.answer_options.present?
+          - poll.answer_options.each_with_index do |answer, index|
+            = render 'answer_input', answer_number: index, answer: answer
+        - else
+          = render 'default_answer_options'
+      = f.submit "Save"
+      = button_tag("Add option", id: 'add')
