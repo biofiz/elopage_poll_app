@@ -7,12 +7,8 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    .container
-    .row.text-white.bg-light
-      .container.col-md-4
-        = link_to "Home", root_path
-      .container.col-md-4
-        = link_to "All polls", polls_path
+    =render('layouts/header')
+
     .container
       - flash.each do |key, value|
         %div{:class => "#{flash_class(key)}"}
