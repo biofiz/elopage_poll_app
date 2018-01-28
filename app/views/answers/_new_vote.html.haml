@@ -1,8 +1,9 @@
 - if policy(poll).vote?
   %h3= poll.title
   = form_for :answer, url: { action: 'create' } do |f|
+    = f.hidden_field :poll_id, value: @poll.id
     = f.radio_button :option, 0, checked: true
-    =  poll.answer_options[0]
+    = poll.answer_options[0]
     %br
     - poll.answer_options[1..-1].each_with_index do |option, index|
       = f.radio_button :option, index + 1

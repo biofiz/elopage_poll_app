@@ -6,11 +6,12 @@ class AnswersController < ApplicationController
   end
 
   def create
-    @poll = Poll.find(params['poll_id'])
+    @poll = Poll.find(params['answer']['poll_id'])
     authorize @poll, :vote?
 
-    @answer = Answer.new(answer_params.merge(user: current_user, poll: @poll))
+    @answer = Answer.new(answer_params.merge(user: current_user))
     if @answer.save
+      flash[:success] = 'Thank you! You successfully voted!'
       redirect_to polls_path
     else
       render 'new'
@@ -20,6 +21,6 @@ class AnswersController < ApplicationController
   private
 
   def answer_params
-    params.require(:answer).permit(:option)
+    params.require(:answer).permit(:option, :poll_id)
   end
 end

@@ -49,7 +49,9 @@ class PollsController < ApplicationController
 
   def params_with_answer_option_as_array
     attributes = poll_params.dup
-    attributes[:answer_options] = attributes[:answer_options].values.reject { |o| o.empty? }
+    if attributes[:answer_options]
+      attributes[:answer_options] = attributes[:answer_options].values.reject { |o| o.empty? }
+    end
     attributes
   end
 
