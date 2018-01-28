@@ -1,4 +1,4 @@
-#TEST TASK RUBY  
+# TEST TASK RUBY
 
 Our task is to create a simple voting rails app. The main features should be user registration and login, poll creation and link generation for the poll, which other users/friends can use to access and vote. The poll has a title and as many options as the user makes.
 
@@ -19,3 +19,8 @@ Bonus:
 * Make the Poll show page realtime when voting
 
 You can use whatever gems you like, except any gem that makes everything above and makes the task senseless.
+
+# * * *
+
+You can check my app on heroku - https://elopage-poll-app.herokuapp.com
+and take part in survey - https://elopage-poll-app.herokuapp.com/answers/96ee3733-82c7-490d-b0cd-a29cd8158684/new
