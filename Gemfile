@@ -13,6 +13,7 @@ gem 'devise'
 gem 'haml'
 gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
+gem 'pundit'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

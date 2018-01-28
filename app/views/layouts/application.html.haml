@@ -14,4 +14,7 @@
       .container.col-md-4
         = link_to "All polls", polls_path
     .container
+      - flash.each do |key, value|
+        %div{:class => "#{flash_class(key)}"}
+          = value
       = yield

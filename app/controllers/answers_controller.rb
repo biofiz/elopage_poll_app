@@ -3,15 +3,16 @@ class AnswersController < ApplicationController
 
   def new
     @poll = Poll.find_by(uuid: params[:uuid])
-    render 'already_voted' if current_user.already_voted?(@poll)
   end
 
   def create
-    @answer = Answer.new(answer_params.merge(user: current_user))
+    @poll = Poll.find(params['poll_id'])
+    authorize @poll, :vote?
+
+    @answer = Answer.new(answer_params.merge(user: current_user, poll: @poll))
     if @answer.save
       redirect_to polls_path
     else
-      @poll = Poll.find(answer_params['poll_id'])
       render 'new'
     end
   end
@@ -19,7 +20,6 @@ class AnswersController < ApplicationController
   private
 
   def answer_params
-    params.require(:answer).permit(:poll_id, :option)
+    params.require(:answer).permit(:option)
   end
-
 end

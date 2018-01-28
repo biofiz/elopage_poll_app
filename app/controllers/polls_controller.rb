@@ -2,11 +2,12 @@ class PollsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @polls = Poll.all
+    @polls = current_user.polls
   end
 
   def show
     @poll = Poll.find(params[:id])
+    authorize @poll
   end
 
   def new
@@ -24,10 +25,12 @@ class PollsController < ApplicationController
 
   def edit
     @poll = Poll.find(params[:id])
+    authorize @poll
   end
 
   def update
     @poll = Poll.find(params[:id])
+    authorize @poll
     if @poll.update_attributes(params_with_answer_option_as_array)
       redirect_to @poll
     else
