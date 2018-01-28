@@ -1,9 +1,9 @@
 %h1 About poll
 %h2 #{@poll.title}
 %ul
-  - @poll.answer_options.each do |a|
+  - @poll.answer_options.each_with_index do |option, index|
     %li
-      = a
+      = "#{option} - #{votes_amount(@answers_count, index)}"
 %h5= link_to vote_url(uuid: @poll.uuid), vote_path(uuid: @poll.uuid)
 - if policy(@poll).edit?
   %p= link_to "Edit", edit_poll_path(@poll)

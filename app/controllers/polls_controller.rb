@@ -8,6 +8,7 @@ class PollsController < ApplicationController
   def show
     @poll = Poll.find(params[:id])
     authorize @poll
+    @answers_count = @poll.answers.select(:option).group(:option).count
   end
 
   def new
