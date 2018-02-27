@@ -1,12 +1,12 @@
 class PollsController < ApplicationController
   before_action :authenticate_user!
+  before_action :find_poll, only: [:show, :edit, :destroy]
 
   def index
     @polls = current_user.polls
   end
 
   def show
-    @poll = Poll.find(params[:id])
     authorize @poll
     @answers_count = @poll.answers.select(:option).group(:option).count
   end
@@ -25,7 +25,6 @@ class PollsController < ApplicationController
   end
 
   def edit
-    @poll = Poll.find(params[:id])
     authorize @poll
   end
 
@@ -40,12 +39,15 @@ class PollsController < ApplicationController
   end
 
   def destroy
-    @poll = Poll.find(params[:id])
     @poll.destroy
     redirect_to polls_path
   end
 
   private
+
+  def find_poll
+    @poll = Poll.find(params[:id])
+  end
 
   def params_with_answer_option_as_array
     attributes = poll_params.dup

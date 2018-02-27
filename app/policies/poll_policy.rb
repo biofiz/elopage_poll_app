@@ -6,7 +6,7 @@ class PollPolicy
     @record = record
   end
 
-    def show?
+  def show?
     record.user == user
   end
 
